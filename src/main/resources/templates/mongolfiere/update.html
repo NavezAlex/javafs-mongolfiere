@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:action="@{ /mongolfiere/{id}/update (id=${id}) }" th:object="${mongolfiere}" method="post">
+
+    <div>
+        <label for="mongolfiere-input-nom">Nom :</label>
+        <input type="text" name="nom" id="mongolfiere-input-nom" th:field="*{nom}">
+    </div>
+
+    <div>
+        <label for="mongolfiere-input-nbPlaces">Places :</label>
+        <input type="number" name="nbPlace" id="mongolfiere-input-nbPlaces" th:field="*{nbPlaces}">
+    </div>
+
+    <div>
+        <label>Disponibilité :</label>
+
+        <input type="radio" th:value="true" id="mongolfiere-input-disponibilite-true" th:field="*{disponibilite}">
+        <label for="mongolfiere-input-disponibilite-true">Disponible</label>
+
+        <input type="radio" th:value="false" id="mongolfiere-input-disponibilite-false" th:field="*{disponibilite}">
+        <label for="mongolfiere-input-disponibilite-false">Réservé</label>
+
+    </div>
+
+    <button type="submit">envoyer</button>
+    <a th:href=" @{/mongolfiere/{id}/details (id=${id})}">annuler</a>
+
+</form>
+
+</body>
+</html>

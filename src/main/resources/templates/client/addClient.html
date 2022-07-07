@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h2>Ajouter un Client</h2>
+
+    <form action="#" th:action="@{ /client/add }" th:object="${client}" method="post">
+
+        <div>
+            <label for="client-input-username">nom :</label>
+            <input type="text" name="nom" id="client-input-username" th:field="*{username}" required>
+        </div>
+
+        <div>
+            <label for="client-input-password">password :</label>
+            <input type="password" name="password" id="client-input-password" th:field="*{password}" required>
+        </div>
+
+        <div>
+            <label for="client-input-email">email :</label>
+            <input type="email" name="email" id="client-input-email" th:field="*{email}" required>
+        </div>
+
+        <div>
+            <label for="client-input-dateNaissance">Date de naissance :</label>
+            <input type="date" name="dateNaissance" id="client-input-dateNaissance" th:field="*{dateNaissance}" required>
+        </div>
+
+
+        <button type="submit">envoyer</button>
+        <button type="button"><a th:href="@{ /mongolfiere/all }">annuler</a></button>
+    </form>
+
+</body>
+</html>

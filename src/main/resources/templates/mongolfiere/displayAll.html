@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Liste des Mongolfieres</h2>
+
+<ul>
+    <li th:each="mongolfieres : ${mongolfieres}" th:object="${mongolfieres}">
+        <a th:text="*{nom}"  href="#" th:href="@{ /mongolfiere/{id}/details (id=*{id}, param='value') }"></a>
+
+    <span th:if="*{disponibilite} == true">Disponible</span>
+    <span th:if="*{disponibilite} == false">Réservé</span>
+    </li>
+</ul>
+
+<div>
+    <a href="#" th:href="@{ / }"><button sec:authorize="isAuthenticated()">Réserver</button></a>
+    <a href="#" th:href="@{ / }"><button sec:authorize="isAuthenticated()">Mes Réservations</button></a>
+</div>
+
+<div>
+    <button sec:authorize="isAnonymous()"><a href="#" th:href="@{ /login }">Se connecter</a></button>
+    <button sec:authorize="isAuthenticated()"><a href="#" th:href="@{ /logout }">Se déconnecter</a></button>
+</div>
+
+</body>
+</html>

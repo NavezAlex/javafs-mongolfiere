@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:object="${mongolfiere}">
+
+<h2>Détails :</h2>
+
+
+<div>
+    <p>Nom : <span th:text="*{nom}"></span></p>
+    <p>Nombre de Place : <span th:text="*{nbPlaces}"></span></p>
+    <p>Disponibilité :
+        <span th:if="*{disponibilite} == true">Disponible</span>
+        <span th:if="*{disponibilite} == false">Réservé</span>
+    </p>
+</div>
+
+<a sec:authorize="hasRole('ADMIN')" th:href="@{ /mongolfiere/{id}/update (id=*{id}) }">update</a>
+<a th:href="@{ /mongolfiere/all }">retour</a>
+
+</body>
+</html>

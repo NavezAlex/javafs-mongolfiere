@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h3>Se connecter</h3>
+    <form action="#" th:action="@{ /login }" method="post" th:with="error = ${#request.getParameter('error')}">
+        <p th:if="${error}">Le username/password sont incorrects</p>
+        <div>
+            <label for="in-username">username</label>
+            <input type="text" id="in-username" name="username">
+        </div>
+
+        <div>
+            <label for="in-password">password</label>
+            <input type="password" id="in-password" name="password">
+        </div>
+
+        <button type="submit">se connecter</button>
+
+    </form>
+
+</body>
+</html>
